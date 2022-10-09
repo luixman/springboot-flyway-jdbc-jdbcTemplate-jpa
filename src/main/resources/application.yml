@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+
+
+
+
+
