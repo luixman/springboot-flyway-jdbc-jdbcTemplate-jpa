@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository()
 @ConditionalOnProperty(prefix = "spring",name = "datasource.connection",havingValue = "jdbcTemplate")
-public class JdbcTemplateRepo implements Queries {
+public class JdbcTemplateRepo implements DbQueries {
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired

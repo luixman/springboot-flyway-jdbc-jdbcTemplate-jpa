@@ -16,7 +16,7 @@ import java.util.List;
 
 @Repository()
 @ConditionalOnProperty(prefix = "spring",name = "datasource.connection",havingValue = "jdbc")
-public class JdbcRepo implements Queries {
+public class JdbcRepo implements DbQueries {
     private Connection connection;
 
 

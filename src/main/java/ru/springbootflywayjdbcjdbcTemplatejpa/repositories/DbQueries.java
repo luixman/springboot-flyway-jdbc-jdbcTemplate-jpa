@@ -5,6 +5,6 @@ import ru.springbootflywayjdbcjdbcTemplatejpa.entity.Student;
 import java.util.List;
 
 
-public interface Queries {
+public interface DbQueries {
     List<Student> getAll();
 }

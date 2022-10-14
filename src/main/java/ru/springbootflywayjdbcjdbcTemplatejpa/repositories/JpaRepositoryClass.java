@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 @ConditionalOnProperty(prefix = "spring",name = "datasource.connection", havingValue = "jpa")
-public class JpaRepositoryClass implements Queries {
+public class JpaRepositoryClass implements DbQueries {
 
     @Autowired
     private JpaRepo jpaRepo;
