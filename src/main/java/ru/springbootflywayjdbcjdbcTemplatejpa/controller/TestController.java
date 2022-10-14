@@ -1,49 +1,28 @@
 package ru.springbootflywayjdbcjdbcTemplatejpa.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import ru.springbootflywayjdbcjdbcTemplatejpa.repositories.JdbcRepo;
-import ru.springbootflywayjdbcjdbcTemplatejpa.repositories.JdbcTemplateRepo;
-import ru.springbootflywayjdbcjdbcTemplatejpa.repositories.JpaRepo;
+import ru.springbootflywayjdbcjdbcTemplatejpa.repositories.Queries;
 
 @RestController
 @EnableWebMvc
+@RequiredArgsConstructor
 public class TestController {
 
 
-    private final JpaRepo jpaRepo;
-    private final JdbcRepo jdbcRepo;
-    private  final JdbcTemplateRepo jdbcTemplateRepo;
+    //@Resource(name = "${application.dataBase}")
+    private final Queries repo;
 
 
-    public TestController(JpaRepo jpaRepo, JdbcRepo jdbcRepo, JdbcTemplateRepo jdbcTemplateRepo) {
-        this.jpaRepo = jpaRepo;
-        this.jdbcRepo = jdbcRepo;
-        this.jdbcTemplateRepo = jdbcTemplateRepo;
+    @GetMapping("/")
+    public ResponseEntity getAll() {
+        return ResponseEntity.ok(repo.getAll());
     }
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello";
-    }
 
-    @GetMapping("/jpa")
-    public ResponseEntity jpa(){
-        return ResponseEntity.ok(jpaRepo.findAll());
-    }
-
-    @GetMapping("/jdbc")
-    public ResponseEntity jdbc(){
-        return ResponseEntity.ok(jdbcRepo.getAll());
-    }
-
-    @GetMapping("/jdbc_template")
-    public ResponseEntity jdbcTemplate(){
-        return ResponseEntity.ok(jdbcTemplateRepo.getAll());
-    }
 
 
 }

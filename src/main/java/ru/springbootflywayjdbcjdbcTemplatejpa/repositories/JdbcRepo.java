@@ -1,6 +1,7 @@
 package ru.springbootflywayjdbcjdbcTemplatejpa.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Repository;
 import ru.springbootflywayjdbcjdbcTemplatejpa.entity.Student;
 
@@ -11,10 +12,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-@Repository
-public class JdbcRepo {
+
+@Repository()
+@ConditionalOnProperty(prefix = "spring",name = "datasource.connection",havingValue = "jdbc")
+public class JdbcRepo implements Queries {
     private Connection connection;
 
 
@@ -36,6 +38,7 @@ public class JdbcRepo {
     }
 
     public List<Student> getAll() {
+        System.out.println("jdbc");
         List<Student> students = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();

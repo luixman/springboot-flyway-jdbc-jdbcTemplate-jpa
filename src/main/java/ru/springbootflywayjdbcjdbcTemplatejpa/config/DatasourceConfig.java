@@ -7,12 +7,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import ru.springbootflywayjdbcjdbcTemplatejpa.repositories.JdbcRepo;
 
-import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @Configuration
 @PropertySource("classpath:application.yml")
@@ -22,7 +18,7 @@ public class DatasourceConfig {
     private Environment env;
 
     @Bean
-    public DataSource getDataSource(){
+    public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
@@ -32,10 +28,10 @@ public class DatasourceConfig {
 
     }
 
-
     @Bean
-    JdbcTemplate jdbcTemplate(){
+    JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(getDataSource());
     }
+
 
 }
