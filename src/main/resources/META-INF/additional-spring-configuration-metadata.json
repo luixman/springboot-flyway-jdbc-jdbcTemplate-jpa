@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.connection",
+      "type": "java.lang.String",
+      "defaultValue": "jpa"
+    }
+
+  ], "hints": [
+  {
+  "name": "spring.datasource.connection",
+    "values": [
+      {
+        "value": "jdbc",
+        "description": "JDBC connection."
+      },
+      {
+        "value": "jpa",
+        "description": "JPA connection."
+      },
+      {
+        "value": "jdbcTemplate",
+        "description": "TEMPLATE connection."
+      }
+    ]
+}
+]
+}

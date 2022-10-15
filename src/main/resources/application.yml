@@ -9,9 +9,10 @@ spring:
     connection: jdbc
 logging:
   level:
-    root: info
     web: warn
     sql: warn
+    root: info
+
 
 
 
