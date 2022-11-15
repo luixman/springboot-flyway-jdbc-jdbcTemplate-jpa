@@ -5,6 +5,8 @@ import ru.springbootflywayjdbcjdbcTemplatejpa.entity.Student;
 
 public interface JpaRepo extends JpaRepository<Student, Long>  {
 
+
+    Student findFirstById(Long id);
 }
 
 

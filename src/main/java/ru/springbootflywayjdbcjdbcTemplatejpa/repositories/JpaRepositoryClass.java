@@ -18,4 +18,27 @@ public class JpaRepositoryClass implements DbQueries {
     public List<Student> getAll() {
         return jpaRepo.findAll();
     }
+
+    @Override
+    public Student getStudentById(Long id) {
+        return jpaRepo.findFirstById(id);
+    }
+
+    @Override
+    public void save(Student student) {
+        jpaRepo.save(student);
+    }
+
+    @Override
+    public Student update(Long id, Student student) {
+        student.setId(id);
+        jpaRepo.save(student);
+        return jpaRepo.findFirstById(id);
+
+    }
+
+    @Override
+    public void delete(Long id) {
+        jpaRepo.deleteById(id);
+    }
 }
